@@ -13,13 +13,24 @@ export function initKeyboard() {
       if (e.key === 'Escape') e.target.blur();
       return;
     }
-
     const key = e.key.toLowerCase();
     const detailPanel = $('#detail-panel');
 
-    if (key === 'e' && !e.ctrlKey && !e.metaKey) {
+    if (key === 'h') {
+      e.preventDefault();
+      const m = $('#modal-help');
+      m.classList.contains('hidden') ? openModal('modal-help') : closeModal('modal-help');
+    } else if (key === 's' && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault();
+      const m = $('#modal-settings');
+      if (m.classList.contains('hidden')) { openModal('modal-settings'); }
+      else closeModal('modal-settings');
+    } else if (key === 'e' && !e.ctrlKey && !e.metaKey) {
       e.preventDefault();
       exportImage();
+    } else if (key === 'r') {
+      e.preventDefault();
+      resetFilters();
     } else if (key === 't') {
       e.preventDefault();
       toggleHeightStack();
