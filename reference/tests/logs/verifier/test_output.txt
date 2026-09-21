@@ -1,0 +1,29 @@
+[run_script] app:   ../../fixed-repo
+[run_script] tests: /c/Users/demis/downloads/task_0707-tallest-buildings-rank-silhouette-workspace/reference/tests
+TEST_INTEGRITY=SKIPPED
+[run_script] booting app (stack game) on :8000 ...
+127.0.0.1 - - [09/Sep/2026 10:50:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /styles/base.css   ok 1 buildings-rank-silhouette.spec.js:228:1 › [F2P] S shortcut opens the Settings modal (2.9s)
+
+  1 passed (4.0s)
+p/2026 10:50:24] "GET /styles/themes.css HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/main.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/state.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/keyboard.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/canvas.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/animation.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/filters.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/list.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/stack.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/modals.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/detail.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/tooltip.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/export.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/ui/settings.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/tests.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 10:50:24] "GET /js/data.js HTTP/1.1" 200 -
+===PLAYWRIGHT_END===
+PLAYWRIGHT_EXIT=0
+PLAYWRIGHT_JSON=./logs/verifier/playwright_results.json

@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Project setup - HTML structure + data + canvas rendering",
+    "status": "done",
+    "notes": "Refactored into 20 modular source files. 29/29 self-tests pass. All features working: canvas rendering, filters, detail panel, keyboard shortcuts, export, localStorage persistence, settings, tooltips."
+  }
+]

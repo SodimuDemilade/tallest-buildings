@@ -1,0 +1,68 @@
+/* ============================================================
+   TALLEST BUILDINGS RANK — Base Styles
+   Resets, typography, theme tokens
+   ============================================================ */
+
+:root {
+  /* Surfaces */
+  --bg:          #f0ebe3;
+  --bg-warm:     #e8e0d4;
+  --surface:     #faf8f5;
+  --surface-alt: #f5f1eb;
+  --surface-dim: #e2dbd1;
+
+  /* Ink */
+  --ink:         #2c2a26;
+  --ink-mid:     #5a564e;
+  --ink-light:   #8a8478;
+  --ink-faint:   #b8b2a6;
+
+  /* Accent */
+  --amber:       #d4880f;
+  --amber-light: #f0c75e;
+  --amber-dim:   #a06a08;
+  --glass-blue:  #4a7fa5;
+  --glass-light: #7eb3d4;
+  --glass-dim:   #2f5f82;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(44,42,38,.08);
+  --shadow-md:  0 4px 12px rgba(44,42,38,.10);
+  --shadow-lg:  0 8px 30px rgba(44,42,38,.14);
+
+  /* Type */
+  --font-body:  'DM Sans', sans-serif;
+  --font-display: 'DM Serif Display', serif;
+  --font-mono:  'IBM Plex Mono', monospace;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(.25,.46,.45,.94);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+  --dur-fast: 150ms;
+  --dur-mid:  300ms;
+  --dur-slow: 500ms;
+
+  /* Layout */
+  --header-h: 72px;
+  --filters-h: 56px;
+  --radius: 6px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+select, input { font-family: inherit; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }

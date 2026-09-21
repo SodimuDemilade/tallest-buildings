@@ -1,0 +1,70 @@
+/* ============================================================
+   TALLEST BUILDINGS RANK — Theme Extensions
+   Additional visual polish and theming
+   ============================================================ */
+
+/* Light theme is default (see base.css tokens) */
+
+/* Hover effects on interactive elements */
+.filter-select:active {
+  transform: scale(0.98);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}
+
+/* Building card hover glow */
+.building-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(212,136,15,0.03), rgba(74,127,165,0.03));
+}
+.building-card:hover::after {
+  opacity: 1;
+}
+
+/* Modal backdrop animation */
+.modal-overlay {
+  transition: opacity var(--dur-mid) var(--ease-out);
+}
+
+/* Smooth height stack transitions */
+.height-stack {
+  transition: opacity var(--dur-mid) var(--ease-out), transform var(--dur-mid) var(--ease-out);
+}
+.height-stack.hidden {
+  transform: translateY(-10px);
+}
+
+/* Detail panel shadow animation */
+.detail-panel {
+  transition: transform var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out);
+}
+.detail-panel.visible {
+  box-shadow: -8px 0 30px rgba(44,42,38,.18);
+}
+
+/* Canvas wrapper subtle inner shadow */
+#canvas-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 -20px 30px -20px rgba(44,42,38,0.08);
+}
+
+/* Status bar subtle gradient */
+.status-bar {
+  background: linear-gradient(180deg, var(--surface-alt), var(--surface));
+}
+
+/* Keyboard hints subtle animation */
+.kb-hints {
+  animation: fadeInUp 0.5s var(--ease-out) 1s both;
+}

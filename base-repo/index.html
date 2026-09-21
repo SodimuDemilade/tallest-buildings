@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Tallest Buildings — Skyline Rank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="header-left">
+    <h1>Tallest Buildings <span class="header-accent">Rank</span></h1>
+    <p class="header-sub">Top 30 tallest structures on Earth — silhouette comparison & data explorer</p>
+  </div>
+  <div class="header-right">
+    <button id="btn-help" class="btn-icon" title="Help & About (H)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </button>
+    <button id="btn-settings" class="btn-icon" title="Settings (S)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <button id="btn-export" class="btn-icon" title="Export (E)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Filters -->
+<div id="filters" class="filters-bar">
+  <div class="filter-group">
+    <label class="filter-label">Region</label>
+    <select id="filter-region" class="filter-select">
+      <option value="all">All Regions</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label">Era</label>
+    <select id="filter-era" class="filter-select">
+      <option value="all">All Eras</option>
+      <option value="pre-2000">Pre-2000</option>
+      <option value="2000-2010">2000–2010</option>
+      <option value="2010-2015">2010–2015</option>
+      <option value="2015-2020">2015–2020</option>
+      <option value="2020+">2020+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label">Sort</label>
+    <select id="filter-sort" class="filter-select">
+      <option value="height-desc">Height ↓</option>
+      <option value="height-asc">Height ↑</option>
+      <option value="name">Name</option>
+      <option value="year">Year Opened</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label">Show</label>
+    <select id="filter-count" class="filter-select">
+      <option value="3">Top 3</option>
+      <option value="5">Top 5</option>
+      <option value="10">Top 10</option>
+      <option value="15">Top 15</option>
+      <option value="20">Top 20</option>
+      <option value="25">Top 25</option>
+      <option value="30" selected>Top 30</option>
+    </select>
+  </div>
+  <div class="filter-group filter-search">
+    <input type="text" id="filter-search" class="filter-input" placeholder="Search buildings…" />
+  </div>
+  <button id="btn-reset" class="btn-reset" title="Reset filters (R)">Reset</button>
+</div>
+
+<!-- Main Canvas Area -->
+<div id="canvas-wrapper">
+  <canvas id="skyline"></canvas>
+  <div id="tooltip" class="tooltip hidden"></div>
+  <div id="height-stack" class="height-stack hidden"></div>
+</div>
+
+<!-- Building List -->
+<div id="list-section">
+  <div class="list-header">
+    <h2>Building List</h2>
+    <span id="list-count" class="list-count"></span>
+  </div>
+  <div id="building-list"></div>
+</div>
+
+<!-- Help Modal -->
+<div id="modal-help" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close="modal-help">&times;</button>
+    <h2>Tallest Buildings Rank</h2>
+    <p>This interactive visualization compares the <strong>top 30 tallest buildings</strong> in the world as scaled silhouettes, giving you a true sense of relative scale.</p>
+    <h3>How to Use</h3>
+    <ul>
+      <li><strong>Skyline Canvas</strong> — Each silhouette is drawn to true relative scale. Hover for quick info.</li>
+      <li><strong>Click a silhouette</strong> to see full building details including height, location, and year opened.</li>
+      <li><strong>Filter</strong> by region, era, or search by name.</li>
+      <li><strong>Height Stack</strong> — Toggle overlay showing how many buildings fit stacked on the tallest.</li>
+    </ul>
+    <h3>Keyboard Shortcuts</h3>
+    <table class="shortcut-table">
+      <tr><td><kbd>H</kbd></td><td>Toggle this help</td></tr>
+      <tr><td><kbd>S</kbd></td><td>Open settings</td></tr>
+      <tr><td><kbd>E</kbd></td><td>Export current view</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Reset all filters</td></tr>
+      <tr><td><kbd>1–9</kbd></td><td>Quick-select top N</td></tr>
+      <tr><td><kbd>T</kbd></td><td>Toggle height stack overlay</td></tr>
+      <tr><td><kbd>↑</kbd><kbd>↓</kbd></td><td>Navigate buildings</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>Close modals / deselect</td></tr>
+    </table>
+    <h3>About</h3>
+    <p>Data sourced from The Skyscraper Center (CTBUH). Heights represent architectural top (including spires). All measurements in meters.</p>
+    <p class="version-text">v1.0 · Built with vanilla HTML/CSS/JS · No frameworks</p>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="modal-settings" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" data-close="modal-settings">&times;</button>
+    <h2>Settings</h2>
+    <div class="settings-grid">
+      <div class="setting-item">
+        <label>Ground level</label>
+        <select id="set-ground" class="filter-select">
+          <option value="bottom">Bottom of canvas</option>
+          <option value="offset">Offset from bottom</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>Silhouette color mode</label>
+        <select id="set-color-mode" class="filter-select">
+          <option value="ink">Solid ink</option>
+          <option value="region">Color by region</option>
+          <option value="height">Height gradient</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>Show height labels</label>
+        <select id="set-labels" class="filter-select">
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>Show grid lines</label>
+        <select id="set-grid" class="filter-select">
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>Animation speed</label>
+        <select id="set-anim" class="filter-select">
+          <option value="fast">Fast</option>
+          <option value="normal" selected>Normal</option>
+          <option value="slow">Slow</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>Tooltip style</label>
+        <select id="set-tooltip-style" class="filter-select">
+          <option value="card">Card</option>
+          <option value="simple">Simple</option>
+        </select>
+      </div>
+    </div>
+    <div class="settings-actions">
+      <button id="btn-clear-data" class="btn-danger">Clear Saved Data</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Panel (slide-in) -->
+<div id="detail-panel" class="detail-panel hidden">
+  <button id="detail-close" class="detail-close-btn">&times;</button>
+  <div id="detail-content"></div>
+</div>
+
+<!-- Keyboard shortcut hints -->
+<div id="kb-hints" class="kb-hints">
+  <span title="Help"><kbd>H</kbd></span>
+  <span title="Settings"><kbd>S</kbd></span>
+  <span title="Export"><kbd>E</kbd></span>
+  <span title="Reset"><kbd>R</kbd></span>
+  <span title="Height stack"><kbd>T</kbd></span>
+</div>
+
+<!-- Status bar -->
+<div id="status-bar" class="status-bar">
+  <span id="status-text">Ready</span>
+  <span id="status-fps"></span>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
