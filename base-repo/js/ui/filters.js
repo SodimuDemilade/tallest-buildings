@@ -80,9 +80,5 @@ export function initFilterHandlers() {
   $('#filter-era').addEventListener('change', e => { state.filters.era = e.target.value; applyFilters(); });
   $('#filter-sort').addEventListener('change', e => { state.filters.sort = e.target.value; applyFilters(); });
   $('#filter-count').addEventListener('change', e => { state.filters.count = parseInt(e.target.value); applyFilters(); });
-  $('#filter-search').addEventListener('input', (function() {
-    let t;
-    return e => { clearTimeout(t); t = setTimeout(() => { state.filters.search = e.target.value; applyFilters(); }, 200); };
-  })());
   $('#btn-reset').addEventListener('click', resetFilters);
 }
